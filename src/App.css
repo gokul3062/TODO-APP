@@ -1,0 +1,54 @@
+.header{
+  width:100%;
+  height: 160px;
+  background-color:rgb(233, 179, 197);
+  padding: 40px;
+}
+
+.card-container{
+  height: 100%;
+  width: 300px;
+  box-shadow: 0px 3px 50px #A5A5A5;
+}
+
+.card-wrapper{
+  width: 270px; 
+  height: 200px; 
+  box-shadow: 0px 3px 50px #090b009c;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top{
+  width: 100%;
+  height: 2%;
+}
+
+.task-holder{
+  width: 100%;
+  height: 98%;
+  padding: 10px 10px;
+  display : flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-header{
+  font-family: 'Times New Roman', Times, serif;
+  font-size:18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 80px;
+  height: 30px;
+  padding: 1px 2px !important;
+  text-align: center;
+}
+
+.task-container{
+  height: 600px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F6F7F8;
+  padding : 40px 50px;
+}
