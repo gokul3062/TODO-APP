@@ -21,6 +21,7 @@ const Todolist = () => {
         let templist=tasklist
         templist.splice(index,1)
         localStorage.setItem("tasklist",JSON.stringify(templist))
+        
         setTasklist(templist)
         window.location.reload()
      }
