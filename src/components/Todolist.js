@@ -21,7 +21,15 @@ const Todolist = () => {
         let templist=tasklist
         templist.splice(index,1)
         localStorage.setItem("tasklist",JSON.stringify(templist))
-        
+
+        setTasklist(templist)
+        window.location.reload()
+     }
+     const updateListArray=(obj,index)=>
+     {
+        let templist=tasklist
+        templist[index]=obj
+        localStorage.setItem("tasklist",JSON.stringify(templist))
         setTasklist(templist)
         window.location.reload()
      }
@@ -40,7 +48,7 @@ const Todolist = () => {
               <button className="btn btn-primary mt-1.5" onClick={()=> setModal(true)}>Create Task</button>
             </div>
             <div className='task-container'>
-                {tasklist && tasklist.map((obj,index)=> <Card taskobj={obj} index={index} deleteTask={deletetask}/>)}
+                {tasklist && tasklist.map((obj,index)=> <Card taskobj={obj} index={index} deleteTask={deletetask}  updateListArray={updateListArray}/>)}
 
             </div>
             <Create toggle={toggle} model={model} save={SaveTask} />
