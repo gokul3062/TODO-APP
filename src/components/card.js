@@ -2,11 +2,12 @@ import React,{useState} from 'react';
 import EditTaskPopup from './modals/EditTask';
 //icons
 //labels
-
+import { FiEdit} from "react-icons/fi";
+import { Switch,Flex} from '@chakra-ui/react'
+import { RiDeleteBin6Line } from "react-icons/ri";
 const Card = ({taskobj,index,deleteTask,updateListArray}) => {
     const [modal,setModal]=useState(false);
     const toggle=()=>{setModal(!modal)}
-
 
     const colors = [
         {
@@ -30,6 +31,7 @@ const Card = ({taskobj,index,deleteTask,updateListArray}) => {
             secondaryColor : "#F3F0FD"
         }
     ] 
+    
     const Delete=()=>
     {
         deleteTask(index)
@@ -39,20 +41,18 @@ const Card = ({taskobj,index,deleteTask,updateListArray}) => {
         updateListArray(obj,index)
     }
     return (
-        <div className = "card-wrapper mr-5" style={{margin:"15px"}}>
-            <div className = "card-top" style={{"backgroundColor": colors[index%5].primaryColor}}></div>
-            <div className = "task-holder">
-                <span className = "card-header" style={{"backgroundColor": colors[index%5].secondaryColor, "borderRadius": "10px"}}>{taskobj.Name}</span>
-                <p className = "mt-3">{taskobj.Description}</p>
-
-                <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
-                    <i className = "far fa-edit mr-3" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick={()=> setModal(true)}></i>
-                    <br></br>
-                    <i className ="fas fa-trash-alt" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick={Delete} ></i>
-                </div>
-        </div>
+        <Flex direction={"column"} h="200px" w='250px' borderWidth='1px' borderRadius='lg' overflow='hidden'  style={{margin:"10px",padding:"10px"}} justify={'space-between'}>
+         <Flex justify={'space-between'}><h1 style={{color:colors[index%5].primaryColor,fontSize:"18px",fontWeight:"700"}}>{taskobj.Name}</h1>
+         <Switch size='md' onChange={(e)=>{console.log(e.target)}}/>
+         </Flex>
+         
+         <h1 style={{fontSize:"14px"}}>{taskobj.Description}</h1>
+         <Flex style={{gap:"10px"}}> <RiDeleteBin6Line onClick={Delete} style={{cursor:"pointer",fontSize:"20px"}}/>
+         <FiEdit onClick={()=> setModal(true)} style={{cursor:"pointer",fontSize:"20px"}}/>
+         </Flex>
+         
         <EditTaskPopup modal={modal} toggle={toggle} updateTask={updateTask} taskobj={taskobj} />
-        </div>
+        </Flex>
        );
 };
 
