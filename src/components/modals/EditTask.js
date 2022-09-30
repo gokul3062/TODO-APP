@@ -14,8 +14,6 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskobj}) => {
         }else{
             setDescription(value)
         }
-
-
     }
     useEffect(()=>
     {
@@ -29,7 +27,7 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskobj}) => {
         let tempObj = {}
         tempObj['Name'] = taskName
         tempObj['Description'] = description
-         updateTask(tempObj)
+        updateTask(tempObj)
     }
 
     return (
